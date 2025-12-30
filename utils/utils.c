@@ -19,10 +19,10 @@ bool require(bool condition, char requirement[]) {
     return condition;
 }
 
-void print_binary(uint64_t bits, uint8_t bits_count, bool is_float) {
+void print_binary(uint64_t bits, uint8_t bits_count, bool is_double) {
     for (int i = bits_count - 1; i >= 0; --i) {
         putchar((bits >> i) & 1 ? '1' : '0');
-        if (is_float) {
+        if (is_double) {
             if (i == (bits_count-1)-0) {
                 putchar('|');
             } else if (i == (bits_count-1)-11) {
