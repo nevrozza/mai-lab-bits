@@ -29,7 +29,7 @@ void run_double_check() {
     scanf("%lf", &n);
 
     const uint64_t bits = *((uint64_t *) &n);
-    printf("%lf в двоичной системе счисления – ", n);
+    printf("%lf.. в двоичной системе счисления – ", n);
     print_is_binary_palindrome(bits, 64);
 
     print_binary(bits, 64, true);
