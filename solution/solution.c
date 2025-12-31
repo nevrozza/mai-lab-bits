@@ -5,24 +5,20 @@
 
 #include "../utils/utils.h"
 
+// Функции `print_binary` и `print_is_binary_palindrome` нужны, чтобы меньше повторять код
 void run_negative_integer_check() {
     int n;
     printf("Введите отрицательное целое число: ");
-
     scanf("%d", &n);
+
     if (!require(n < 0, "Число должно быть отрицательным")) {
         return;
     }
 
-    uint32_t bits = (uint32_t) n;
+    const uint32_t bits = (uint32_t) n;
+    printf("%d в двоичном дополнительном коде – ", n);
+    print_is_binary_palindrome(bits, 32);
 
-    if (is_binary_palindrome(bits, 32)) {
-        printf("Двоичное представление числа %d в дополнительном коде – палиндром.\n", n);
-    } else {
-        printf("Двоичное представление числа %d в дополнительном коде – НЕ палиндром.\n", n);
-    }
-
-    printf("Двоичная запись: ");
     print_binary(bits, 32, false);
     putchar('\n');
 }
@@ -32,14 +28,10 @@ void run_double_check() {
     printf("Введите вещественное число [double]: ");
     scanf("%lf", &n);
 
-    uint64_t bits = *((uint64_t *) &n);
+    const uint64_t bits = *((uint64_t *) &n);
+    printf("%lf в двоичной системе счисления – ", n);
+    print_is_binary_palindrome(bits, 64);
 
-    if (is_binary_palindrome(bits, 64)) {
-        printf("Двоичное представление числа %lf – палиндром.\n", n);
-    } else {
-        printf("Двоичное представление числа %lf – НЕ палиндром.\n", n);
-    }
-    printf("Двоичная запись: ");
     print_binary(bits, 64, true);
     putchar('\n');
 }
